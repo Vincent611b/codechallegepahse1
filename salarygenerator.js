@@ -1,17 +1,21 @@
+// Net Salary Calculator 
+// Import readline
 const readline = require('readline');
 
-const Salary = readline.createInterface({
+// Create an interface to read user input
+const sl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-Salary.question('Enter basic salary: ', (basicSalary) => {
-Salary.question('Enter benefits: ', (benefits) => {
+// Prompt user to input basic salary and benefits
+sl.question('Enter basic salary: ', (basicSalary) => {
+  sl.question('Enter benefits: ', (benefits) => {
     // Convert input strings to numbers
     basicSalary = parseFloat(basicSalary);
     benefits = parseFloat(benefits);
 
-    // Tax calculation
+    // Calculate tax
     const taxRate = 0.3; // 30% tax rate
     const tax = (basicSalary + benefits) * taxRate;
 
@@ -36,6 +40,7 @@ Salary.question('Enter benefits: ', (benefits) => {
     console.log(`Gross Salary: ${grossSalary}`);
     console.log(`Net Salary: ${netSalary}`);
 
-    Salary.close();
+    // Close the interface to end the program
+    sl.close();
   });
 });
